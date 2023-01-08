@@ -1,7 +1,7 @@
 # Yöntem 1
 
 # import math
-import mathh as islem
+import _math_ as islem
 # value = dir(math)
 # value=help(math)
 # value=help(math.factorial)

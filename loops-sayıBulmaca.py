@@ -1,4 +1,4 @@
-import random
+import _random_
 
 sayi = random.randint(1, 10)  # 1-100 arasında random sayı üretecek herseferinde farklı
 can=int(input("kaç hak kullanmak istersiniz: "))
