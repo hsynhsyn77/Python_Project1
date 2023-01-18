@@ -17,14 +17,13 @@ class Sahibinden:
     def signIn(self):
         self.browser.get("https://secure.sahibinden.com/giris")
 
-        self.browser.find_element(By.NAME, "loginSelectionPageEmail").send_keys(self.username)
-        time.sleep(1)
-        self.browser.find_element(By.LINK_TEXT, "E-Posta ile Giriş Yap").click()
+        username=self.browser.find_element(By.NAME, "loginSelectionPageEmail")
+        username.send_keys(self.username)
+        username.send_keys(Keys.ENTER)
+        password=self.browser.find_element(By.NAME, "password")
+        password.send_keys(self.password)
+        password.send_keys(Keys.ENTER)
 
-        time.sleep(1)
-
-        self.browser.find_element(By.NAME, "password").send_keys(self.password)
-        self.browser.find_element(By.LINK_TEXT, "Giriş Yap").click()
 
 
 
