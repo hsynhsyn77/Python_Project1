@@ -24,7 +24,7 @@ result5 = df[df["column1"] > 50][["column1", "column2"]]
 result6 = df[(df["column1"] > 50) & (df["column2"] <= 70)]
 result7 = df[(df["column1"] > 50) | (df["column2"] <= 70)]
 result8 = df[(df["column1"] > 50) | (df["column2"] < 50)][["column1", "column2"]]
-result9 = df.query("column1 >= 50 & column1 % 2==0")
+result9 = df.query(" column2 % 2==0")
 result10 = df.query("column1>=50 | column1%2==0")[["column1", "column2"]]
 
 print(result9)
