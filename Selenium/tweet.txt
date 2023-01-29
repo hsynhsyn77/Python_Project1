@@ -1,0 +1,23 @@
+1-Şu University of Helsinki kurslarını ne kadar övsem az. Haberi olmayana tavsiye ederim. Çoğu başlangıç seviyesi ama orta seviye eğitimler de var. Java eğitimlerini zamanında bitirmiştim,tavsiye ederim. Python, Haskell, TDD, Docer, k8s falan baya bişey var.
+https://mooc.fi/en/#courses
+2-Yaklaşık 4 senedir severek çalıştığım şirketimin Python developer ve Infra engineer gibi eleman arayışları bulunuyor. Relocation imkanı mümkün. Hollanda’ya gelin birlikte berber fiyatlarına ağlayalım 
+Ref bonusu alabilmem için başvurmadan önce DM 
+3-If you own a mouse, you will never turn off your computer again.
+4-Learn For Free in 2023:
+
+1. Python
+http://pythontutorial.net
+
+2. JavaScript
+http://learnjavascript.online
+
+3. SQL 
+http://sqlbolt.com
+
+4. Git
+http://atlassian.com/git/tutorials
+
+5. DevOps
+http://edx.org/learn/devops
+
+{ More  } :
