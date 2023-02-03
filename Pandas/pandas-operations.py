@@ -9,10 +9,8 @@ data = {
 
 df = pd.DataFrame(data)
 
-
 def kareal(x):
     return x * x
-
 
 kareal2 = lambda x: x * x
 
@@ -21,7 +19,7 @@ result = df
 result = df["Column2"].unique()  # tekrarlayan elemanları kaldırır
 result = df["Column2"].nunique()
 result = df["Column2"].value_counts()  # herbir elemanın kaç tane tekrarlar
-result = df["Column1"] * 2  # eleamnlarrı 2 ile çarpar
+result = df["Column1"] * 2  # eleamnları 2 ile çarpar
 result = df["Column1"].apply(kareal)
 result = df["Column1"].apply(kareal2)
 result = df["Column1"].apply(lambda x: x * x)

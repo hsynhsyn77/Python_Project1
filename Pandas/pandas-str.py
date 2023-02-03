@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv("nba.csv")
+data = pd.read_csv("datasets/nba.csv")
 
 data.dropna(inplace=True)
 
