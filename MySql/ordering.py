@@ -1,13 +1,14 @@
 import mysql.connector
 
+
 def insertProduct(name, price, imageUrl, description):
     connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com",user="root",password="'\"-LhCB'.%k[4S]z",database="node_app")
     cursor = connection.cursor()
 
     sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)"
-    values = (name,price,imageUrl,description)
+    values = (name, price, imageUrl, description)
 
-    cursor.execute(sql,values)
+    cursor.execute(sql, values)
 
     try:
         connection.commit()
@@ -18,6 +19,7 @@ def insertProduct(name, price, imageUrl, description):
     finally:
         connection.close()
         print('database bağlantısı kapandı.')
+
 
 def insertProducts(list):
     connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com",user="root",password="'\"-LhCB'.%k[4S]z",database="node_app")
@@ -26,7 +28,7 @@ def insertProducts(list):
     sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)"
     values = list
 
-    cursor.executemany(sql,values)
+    cursor.executemany(sql, values)
 
     try:
         connection.commit()
@@ -38,16 +40,23 @@ def insertProducts(list):
         connection.close()
         print('database bağlantısı kapandı.')
 
+
 def getProducts():
     connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com",user="root",password="'\"-LhCB'.%k[4S]z",database="node_app")
     cursor = connection.cursor()
 
-    cursor.execute("Select * From Products")
+    cursor.execute("Select * From Products Order By name, price")
 
-    result = cursor.fetchall()
+    try:
+        result = cursor.fetchall()
+        for product in result:
+            print(f'id: {product[0]} name: {product[1]} price: {product[2]}')
+    except mysql.connector.Error as err:
+        print('hata:', err)
+    finally:
+        connection.close()
+        print('database bağlantısı kapandı.')
 
-    for product in result:
-        print(f'id: {product[0]} name: {product[1]} price: {product[2]}')
 
 def getProductById(id):
     connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com",user="root",password="'\"-LhCB'.%k[4S]z",database="node_app")
@@ -56,8 +65,11 @@ def getProductById(id):
     sql = "Select * From Products Where id=%s"
     params = (id,)
 
-    cursor.execute(sql,params)
+    cursor.execute(sql, params)
 
     result = cursor.fetchone()
 
     print(f'id: {result[0]} name: {result[1]} price: {result[2]}')
+
+
+getProducts()

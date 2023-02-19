@@ -1,18 +1,16 @@
 import mysql.connector
-
-
+#
+#
 def insertProduct(name, price, imageUrl, description):
-    connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com",
-                                         user="root",
-                                         password="'\"-LhCB'.%k[4S]z",
-                                         database="node_app")
+    connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com", user="root",
+                                         password="'\"-LhCB'.%k[4S]z", database="node_app")
     cursor = connection.cursor()
-
+#
     sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)"
     values = (name, price, imageUrl, description)
-
+#
     cursor.execute(sql, values)
-
+#
     try:
         connection.commit()
         print(f'{cursor.rowcount} tane kayıt eklendi')
@@ -25,10 +23,8 @@ def insertProduct(name, price, imageUrl, description):
 
 
 def insertProducts(list):
-    connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com",
-                                         user="root",
-                                         password="'\"-LhCB'.%k[4S]z",
-                                         database="node_app")
+    connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com", user="root",
+                                         password="'\"-LhCB'.%k[4S]z", database="node_app")
     cursor = connection.cursor()
 
     sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)"
@@ -48,14 +44,12 @@ def insertProducts(list):
 
 
 def getProducts():
-    connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com",
-                                         user="root",
-                                         password="'\"-LhCB'.%k[4S]z",
-                                         database="node_app")
+    connection = mysql.connector.connect(host="db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com", user="root",
+                                         password="'\"-LhCB'.%k[4S]z", database="node_app")
     cursor = connection.cursor()
 
     # cursor.execute('Select * From Products')
-    cursor.execute('Select name,price From Products')
+    cursor.execute('Select name,price From products')
 
     # result = cursor.fetchall()
     result = cursor.fetchone()
