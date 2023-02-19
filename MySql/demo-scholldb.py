@@ -6,6 +6,15 @@ import datetime
 
 # 3- Aşağıdaki bilgiler için insert sorguları oluşturup kayıtları ekleyiniz.
 
+# 4- Aşağıdaki sorguları yazınız.
+#   a- Tüm öğrenci kayıtlarını alınız.
+#   b- Tüm öğrencilerin sadece öğrenci no, ad ve soyad bilgilerini alınız.
+#   c- Sadece kız öğrencilerin ad ve soyadlarını alınız.
+#   d- 2003 doğumlu öğrenci bilgilerini alınız.
+#   e- İsmi Ali ve doğum tarihi 2005 olan öğrenci bilgilerini alınız.
+#   f- ad veya soyadı içinde 'an' ifadesi geçen kayıtları alınız.
+#   g- Kaç erkek öğrenci vardır ?
+#   h- Kız öğrencileri harf sırasına göre getiriniz.
 
 import mysql.connector
 from datetime import datetime
@@ -50,11 +59,37 @@ class Student:
         finally:
             Student.connection.close()
 
+    @staticmethod
+    def StudentInfo():
+        sql = "select * from Student LIMIT 5"
+        #sql = "select studentnumber,name,surname from Student"
+        #sql = "select name,surname from Student Where gender='K'"
+        #sql="select * from Student Where YEAR (birthdate)=2003"
+        #sql="select * from Student Where YEAR (birthdate)=2005 and name='Ali'"
+        #sql="select * from Student Where name like '%an%' or surname like '%an%'"
+        #sql="select COUNT(id) from Student where gender='E'"
+        #sql = "select name,surname from Student Where gender='K' order by name,surname"
 
 
-#ahmet = Student("202", "Ahmet", "Yılmaz", datetime(2005, 5, 17), "E")
-#ahmet.saveStudent()
+        Student.mycursor.execute(sql)
 
+        try:
+            results = Student.mycursor.fetchall()
+
+            for result in results:
+               print(f" {result} ")
+
+        except mysql.connector.Error as err:
+            print("hata", err)
+        finally:
+            Student.connection.close()
+
+
+Student.StudentInfo()
+
+# ahmet = Student("202", "Ahmet", "Yılmaz", datetime(2005, 5, 17), "E")
+# ahmet.saveStudent()
+"""
 ogrenciler = [
     ("401", "Ahmet", "Yılmaz", datetime(2005, 5, 17), "E"),
     ("402", "Ali", "Can", datetime(2005, 6, 17), "E"),
@@ -62,6 +97,7 @@ ogrenciler = [
     ("504", "Ayşe", "Taner", datetime(2005, 9, 23), "K"),
     ("605", "Bahadır", "Toksöz", datetime(2004, 7, 27), "E"),
     ("706", "Ali", "Cenk", datetime(2003, 8, 25), "E")
- ]
+]
 
 Student.saveStudent(ogrenciler)
+"""
