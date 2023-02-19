@@ -97,5 +97,5 @@ def updateProduct(id, name, price):
         print('database bağlantısı kapandı.')
 
 
-updateProduct(1, "Iphone x", 10000)
+updateProduct(2, "Iphone xsmax", 12000)
 getProducts()
