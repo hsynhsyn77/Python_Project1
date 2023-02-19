@@ -184,7 +184,7 @@ print(students)
 
 liste = []
 for std in students:
-    std = liste(std)
+    std = list(std)
     std[2] = 'Mr ' + std[2]
     liste.append(std)
 
