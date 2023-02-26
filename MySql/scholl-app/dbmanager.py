@@ -3,6 +3,7 @@ from datetime import datetime
 from connection import connection
 from Student import Student
 from Teacher import Teacher
+from Class import Class
 
 
 class DbManager:
@@ -46,7 +47,14 @@ class DbManager:
 
 
     def editStudent(self, student: Student):
-        pass
+        sql="update student set studentnumber=%s,name=%s,surname=%s,birthday=%s,Gender=%s,classid=%s"
+        value=(student.studentNumber,student.name,student.surname,student.birthdate,student.gender,student.classid)
+        self.cursor.execute(sql,value)
+        try:
+            self.connnection.commit()
+            print(f"{self.cursor.rowcount} tane kayıt güncellendi")
+        except mysql.connector.Error as err:
+            print('hata:', err)
 
     def addTeacher(self, Teacher: Teacher):
         pass
